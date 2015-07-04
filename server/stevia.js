@@ -1,8 +1,8 @@
 
-	Meteor.publish('thePlayers', function(){
-			var currentUserId = this.userId;
-			return PlayersList.find({createdBy: currentUserId})
-			});
+Meteor.publish('thePlans', function(){
+		var currentPlanId = this.planId;
+		return PlansList.find({createdBy: currentUserId})
+		});
 
 
 
