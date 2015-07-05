@@ -1,0 +1,58 @@
+<head> <title>Stevia</title>
+</head>
+<body>
+<h1>Stevia</h1> 
+{{> loginButtons}}
+
+
+{{> stevia}}
+
+</body>
+
+<template name="stevia"> 
+<ul>
+{{#each service}}
+<li class="service {{selectedClass}}">{{name}}: {{score}}</li>
+{{/each}}
+</ul>
+
+
+{{#if showSelectedService}}
+<input type="button" class="sendReminder" value="Send Customer Reminder">
+// <input type="button" class="decrement" value="Take 5 Points">
+
+<input type="button" class="remove" value="Remove Service">
+{{/if}}
+
+<br>
+<br>
+Total Services: {{numberOfServices}} active services.
+<br>
+<br>
+
+{{#if showSelectedService}}
+Selected Service: {{showSelectedService.name}}
+{{/if}}
+
+// decia addPlayerForm
+{{> addServiceForm}}
+
+
+
+</template>
+
+
+<template name="addServiceForm">
+{{#if currentUser}}
+<form>
+<input type="text" name="typeOfService">
+<input type="text" name="serviceName">
+<input type="date" name="dueDate">
+<input type="text" name="customerName">
+<input type="text" name="customerEmail">
+<input type="number" name="customerPhone">
+<input type="number" name="customerMobilePhone">
+<input type="submit" value="Add Service">
+</form>
+{{/if}}
+</template>
