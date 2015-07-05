@@ -1,2 +1,1 @@
-DomainsList = new Mongo.Collection('domains');
-PlansList = new Mongo.Collection('plans');
+ServicesList = new Mongo.Collection('services');

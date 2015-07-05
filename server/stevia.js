@@ -1,12 +1,12 @@
 
-Meteor.publish('thePlans', function(){
-		var currentPlanId = this.planId;
-		return PlansList.find({createdBy: currentUserId})
+Meteor.publish('theServices', function(){
+		var currentServiceId = this.serviceId;
+		return ServicesList.find({createdBy: currentUserId})
 		});
 
 
 
-Meteor.methods({ 'insertPlansData': function(planNameVar, planCustomerNameVar){
+Meteor.methods({ 'insertServicesData': function(typeOfServiceVar, serviceNameVar, dueDateServiceVar, customerNameVar, customerEmailVar, customerPhoneVar, customerMobilePhoneVar ){
 var currentUserId = Meteor.userId(); 
 // La conversi�n siguiente es porque no funcionaba el update del score de acuerdo a como
 // estaba en el libro, parece que por algun motivo, por m�s que el input type del html es
@@ -20,21 +20,23 @@ var currentUserId = Meteor.userId();
 //var scoreAsNumber = playerScoreVar * 1;
 //console.log("El tipo de datos convertido es ==>: ", typeof(socreAsNumber));
 
-PlansList.insert({
-		type: "p",
-		name: planNameVar,
-		customerName: planCustomerNameVar,
-		// ACAAAAAAAAA
-            score: scoreAsNumber,
-            createdBy: currentUserId
+ServicesList.insert({
+		type: typeOfServiceVar,
+		name: serviceNameNameVar,
+		dueDate: dueDateServiceVar,
+		customerName: customerNameVar,
+		customerEmail: customerEmailVar,
+		customerPhone: customerPhoneVar,
+		customerMobilePhone: customerMobilePhoneVar,
+		createdBy: currentUserId
 }); },
 
-'removePlayerData': function(selectedPlayer){
+'removeServiceData': function(selectedService){
 	var currentUserId = Meteor.userId();
-	PlayersList.remove({_id: selectedPlayer, createdBy: currentUserId});
+	ServicesList.remove({_id: selectedService, createdBy: currentUserId});
 },
-
-'modifyPlayerScore': function(selectedPlayer, scoreValue){
+// de aca, ver como modificar múltiples datos de un documento
+'modifyServiceData': function(selectedService, scoreValue){
 	var currentUserId = Meteor.userId();
 	PlayersList.update( {_id: selectedPlayer, createdBy: currentUserId},
                         {$inc: {score: scoreValue} });

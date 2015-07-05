@@ -1,4 +1,4 @@
-Template.leaderboard.helpers({
+Template.stevia.helpers({
     'player': function(){
         // With the following code, only the users created by the current user are displayed
         // var currentUserId = Meteor.userId();
