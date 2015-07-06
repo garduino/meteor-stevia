@@ -2,6 +2,7 @@
 </head>
 <body>
 <h1>Stevia</h1> 
+<h2>Hosting and Domains Administration System</h2>
 {{> loginButtons}}
 
 
@@ -12,7 +13,7 @@
 <template name="stevia"> 
 <ul>
 {{#each service}}
-<li class="service {{selectedClass}}">{{name}}: {{score}}</li>
+<li class="service {{selectedClass}}">{{typeOfService}}: {{serviceName}}: {{dueDate}}: {{customerName}}: {{customerEmail}}: {{customerPhone}}: {{customerMobilePhone}}</li>
 {{/each}}
 </ul>
 
@@ -34,7 +35,7 @@ Total Services: {{numberOfServices}} active services.
 Selected Service: {{showSelectedService.name}}
 {{/if}}
 
-// decia addPlayerForm
+
 {{> addServiceForm}}
 
 
@@ -45,13 +46,21 @@ Selected Service: {{showSelectedService.name}}
 <template name="addServiceForm">
 {{#if currentUser}}
 <form>
-<input type="text" name="typeOfService">
-<input type="text" name="serviceName">
-<input type="date" name="dueDate">
-<input type="text" name="customerName">
-<input type="text" name="customerEmail">
-<input type="number" name="customerPhone">
-<input type="number" name="customerMobilePhone">
+Type of Service ("d" for domain, "p" for hosting plan: <input type="text" name="typeOfService">
+<br>
+Service Name: <input type="text" name="serviceName">
+<br>
+Due Date: <input type="date" name="dueDate">
+<br>
+Customer Name: <input type="text" name="customerName">
+<br>
+Customer eMail: <input type="text" name="customerEmail">
+<br>
+Phone Number: <input type="number" name="customerPhone">
+<br>
+Mobile Phone Number: <input type="number" name="customerMobilePhone">
+<br>
+<br>
 <input type="submit" value="Add Service">
 </form>
 {{/if}}
