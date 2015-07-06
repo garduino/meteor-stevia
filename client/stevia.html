@@ -13,7 +13,7 @@
 <template name="stevia"> 
 <ul>
 {{#each service}}
-<li class="service {{selectedClass}}">{{typeOfService}}: {{serviceName}}: {{dueDate}}: {{customerName}}: {{customerEmail}}: {{customerPhone}}: {{customerMobilePhone}}</li>
+<li class="service {{selectedClass}}">{{typeOfService}}: {{serviceName}}: {{dueDateService}}: {{customerName}}: {{customerEmail}}: {{customerPhone}}: {{customerMobilePhone}}</li>
 {{/each}}
 </ul>
 
@@ -50,7 +50,7 @@ Type of Service ("d" for domain, "p" for hosting plan: <input type="text" name="
 <br>
 Service Name: <input type="text" name="serviceName">
 <br>
-Due Date: <input type="date" name="dueDate">
+Due Date: <input type="date" name="dueDateService">
 <br>
 Customer Name: <input type="text" name="customerName">
 <br>

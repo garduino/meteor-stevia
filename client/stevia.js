@@ -1,11 +1,5 @@
 Template.stevia.helpers({
-    'service': function(){
-        // With the following code, only the users created by the current user are displayed
-        // var currentUserId = Meteor.userId();
-        // return PlayersList.find({createdBy: currentUserId},{sort: {score: -1, name: 1}});
-	// After put in place the feature of publishing/subscribe, is not more needed 
-        // the above way to show only records belonging to the logged user.
-        // In the book exist also the next sentence:
+    'service': function(){    
         // var currentUserId = Meteor.userId();
         // but I think is not needed because the data is already filtered for the logged user
         return ServicesList.find({}, {sort: {score: -1, name: 1}});
