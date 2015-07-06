@@ -1,5 +1,5 @@
 Template.stevia.helpers({
-    'player': function(){
+    'service': function(){
         // With the following code, only the users created by the current user are displayed
         // var currentUserId = Meteor.userId();
         // return PlayersList.find({createdBy: currentUserId},{sort: {score: -1, name: 1}});
@@ -8,27 +8,27 @@ Template.stevia.helpers({
         // In the book exist also the next sentence:
         // var currentUserId = Meteor.userId();
         // but I think is not needed because the data is already filtered for the logged user
-        return PlayersList.find({}, {sort: {score: -1, name: 1}});
+        return ServicesList.find({}, {sort: {score: -1, name: 1}});
     },
    'selectedClass': function(){ 
-   	   var playerId = this._id;
-   	   var selectedPlayer = Session.get('selectedPlayer');
-   	   if(playerId == selectedPlayer){
+   	   var serviceId = this._id;
+   	   var selectedService = Session.get('selectedService');
+   	   if(serviceId == selectedService){
    	   return "selected" }
    } ,
-   'numberOfPlayers': function(){
-   return PlayersList.find().count();
+   'numberOfServices': function(){
+   return ServicesList.find().count();
    },
-   'showSelectedPlayer': function(){
-   	   var selectedPlayer = Session.get('selectedPlayer');
-   	   return PlayersList.findOne(selectedPlayer)
+   'showSelectedSErvice': function(){
+   	   var selectedService = Session.get('selectedService');
+   	   return ServicesList.findOne(selectedService)
 }
   });
 
-  Template.leaderboard.events({
-    'click .player': function(){
-        var playerId = this._id; 
-        Session.set('selectedPlayer', playerId);
+  Template.stevia.events({
+    'click .service': function(){
+        var serviceId = this._id; 
+        Session.set('selectedService', serviceId);
         // var selectedPlayer = Session.get('selectedPlayer');
         // console.log(selectedPlayer);
     },
@@ -49,18 +49,18 @@ Template.stevia.helpers({
     	Meteor.call('modifyPlayerScore', selectedPlayer, -5);
     },
     'click .remove': function(){
-    	var selectedPlayer = Session.get('selectedPlayer');
+    	var selectedService = Session.get('selectedService');
     	
     	if (confirm('Are you sure?')) { 
  	//PlayersList.remove(selectedPlayer);
- 	Meteor.call('removePlayerData', selectedPlayer);
+ 	Meteor.call('removeService', selectedService);
  		}
     	
     }
     
   });
-  
-  Template.addPlayerForm.events({
+  // Desde acaaaaa y arrriba faltan eventos para corregir, solo toqué el remove
+  Template.addServiceForm.events({
   'submit form': function(event){
   	  event.preventDefault();
   	  var playerNameVar = event.target.playerName.value;
