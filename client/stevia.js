@@ -64,7 +64,7 @@ Template.stevia.helpers({
   	  var customerPhoneVar = event.target.customerPhone.value;
   	  var customerMobilePhoneVar = event.target.customerMobilePhone.value; 
   	  
-  	 Meteor.call('insertServiceData', typeOfService, serviceName, dueDateService, customerName, customerEmail, customerPhone, customerMobilePhone);
+  	 Meteor.call('insertServicesData', typeOfService, serviceName, dueDateService, customerName, customerEmail, customerPhone, customerMobilePhone);
   	 event.target.typeOfService.value = '';
   	 event.target.serviceName.value = '';
   	 event.target.dueDateService.value = '';

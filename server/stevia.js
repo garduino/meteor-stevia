@@ -21,9 +21,9 @@ var currentUserId = Meteor.userId();
 //console.log("El tipo de datos convertido es ==>: ", typeof(socreAsNumber));
 
 ServicesList.insert({
-		type: typeOfServiceVar,
-		name: serviceNameVar,
-		dueDate: dueDateServiceVar,
+		typeOfService: typeOfServiceVar,
+		serviceName: serviceNameVar,
+		dueDateService: dueDateServiceVar,
 		customerName: customerNameVar,
 		customerEmail: customerEmailVar,
 		customerPhone: customerPhoneVar,
