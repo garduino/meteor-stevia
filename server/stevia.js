@@ -22,7 +22,7 @@ var currentUserId = Meteor.userId();
 
 ServicesList.insert({
 		type: typeOfServiceVar,
-		name: serviceNameNameVar,
+		name: serviceNameVar,
 		dueDate: dueDateServiceVar,
 		customerName: customerNameVar,
 		customerEmail: customerEmailVar,

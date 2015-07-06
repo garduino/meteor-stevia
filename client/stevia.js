@@ -63,20 +63,25 @@ Template.stevia.helpers({
   Template.addServiceForm.events({
   'submit form': function(event){
   	  event.preventDefault();
-  	  var playerNameVar = event.target.playerName.value;
-  	  var playerScoreVar = event.target.playerScore.value;
-  	 // var currentUserId = Meteor.userId();
-  	 //PlayersList.insert({
-  	 //		 name: playerNameVar,
-  	 //		 score: playerScoreVar,
-  	 //		 createdBy: currentUserId
-  	 //		});
-  	 // pedido en el summary, resetear playerName field a un valor vac�o.
-  	 Meteor.call('insertPlayerData', playerNameVar, playerScoreVar);
-  	 event.target.playerName.value = '';
-  	 event.target.playerScore.value = 0;
+  	  var typeOfServiceVar = event.target.typeOfService.value;
+  	  var serviceNameVar = event.target.serviceName.value;
+  	  var dueDateServiceVar = event.target.dueDateService.value;
+  	  var customerNameVar = event.target.customerName.value;
+  	  var customerEmailVar = event.target.customerEmail.value;
+  	  var customerPhoneVar = event.target.customerPhone.value;
+  	  var customerMobilePhoneVar = event.target.customerMobilePhone.value;
+}); },
+  	  
+  	 Meteor.call('insertServiceData', typeOfService, serviceName, dueDateService, customerName, customerEmail, customerPhone, customerMobilePhone);
+  	 event.target.typeOfService.value = '';
+  	 event.target.serviceName.value = '';
+  	 event.target.dueDateService.value = '';
+  	 event.target.customerName.value = '';
+  	 event.target.customerEmail.value = '';
+  	 event.target.customerPhone.value = 0;
+  	 event.target.customerMobilePhone.value = 0;
   		  }
   });
    
-  Meteor.subscribe('thePlayers');
+  Meteor.subscribe('theServices');
 		
