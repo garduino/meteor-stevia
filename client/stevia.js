@@ -59,7 +59,6 @@ Template.stevia.helpers({
     }
     
   });
-  // Desde acaaaaa y arrriba faltan eventos para corregir, solo toqué el remove
   Template.addServiceForm.events({
   'submit form': function(event){
   	  event.preventDefault();
@@ -69,8 +68,7 @@ Template.stevia.helpers({
   	  var customerNameVar = event.target.customerName.value;
   	  var customerEmailVar = event.target.customerEmail.value;
   	  var customerPhoneVar = event.target.customerPhone.value;
-  	  var customerMobilePhoneVar = event.target.customerMobilePhone.value;
-}); },
+  	  var customerMobilePhoneVar = event.target.customerMobilePhone.value; 
   	  
   	 Meteor.call('insertServiceData', typeOfService, serviceName, dueDateService, customerName, customerEmail, customerPhone, customerMobilePhone);
   	 event.target.typeOfService.value = '';
@@ -80,7 +78,7 @@ Template.stevia.helpers({
   	 event.target.customerEmail.value = '';
   	 event.target.customerPhone.value = 0;
   	 event.target.customerMobilePhone.value = 0;
-  		  }
+  	}	  
   });
    
   Meteor.subscribe('theServices');
