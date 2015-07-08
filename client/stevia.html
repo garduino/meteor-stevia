@@ -46,7 +46,13 @@ Selected Service: {{showSelectedService.name}}
 <template name="addServiceForm">
 {{#if currentUser}}
 <form>
-Type of Service ("d" for domain, "p" for hosting plan: <input type="text" name="typeOfService">
+Type of Service: 
+     <select name="typeOfService">
+        <option value="None selected">Please select below</option>
+        <option value="hosting">hosting</option>
+        <option value="domain">domain</option>
+        <option value="administration">administration</option>
+    </select> 
 <br>
 Service Name: <input type="text" name="serviceName">
 <br>
@@ -54,7 +60,7 @@ Due Date: <input type="date" name="dueDateService">
 <br>
 Customer Name: <input type="text" name="customerName">
 <br>
-Customer eMail: <input type="text" name="customerEmail">
+Customer eMail: <input type="email" name="customerEmail" size="35" value="">
 <br>
 Phone Number: <input type="number" name="customerPhone">
 <br>

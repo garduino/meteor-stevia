@@ -49,7 +49,6 @@ Template.stevia.helpers({
  	//PlayersList.remove(selectedPlayer);
  	Meteor.call('removeService', selectedService);
  		}
-    	
     }
     
   });
@@ -76,4 +75,3 @@ Template.stevia.helpers({
   });
    
   Meteor.subscribe('theServices');
-		
