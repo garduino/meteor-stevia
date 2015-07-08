@@ -1,6 +1,6 @@
 
 Meteor.publish('theServices', function(){
-		var currentServiceId = this.serviceId;
+		var currentUserId = this.userId;
 		return ServicesList.find({createdBy: currentUserId})
 		});
 
