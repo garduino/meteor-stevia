@@ -2,7 +2,7 @@ Template.stevia.helpers({
     'service': function(){    
         // var currentUserId = Meteor.userId();
         // but I think is not needed because the data is already filtered for the logged user
-        return ServicesList.find({}, {sort: {score: -1, name: 1}});
+        return ServicesList.find({}, {sort: {dueDateService: -1, serviceName: 1}});
     },
    'selectedClass': function(){ 
    	   var serviceId = this._id;
