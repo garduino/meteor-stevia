@@ -26,9 +26,9 @@ Template.stevia.helpers({
         Session.set('selectedService', serviceId);
         // console.log(serviceId);
     },
-       // 'dblclick .player': function(){
-      // console.log("You DOUBLE clicked a .player element");
-    // },
+       'dblclick .service': function(){
+      console.log("You DOUBLE clicked a .service element");
+    },
     //   'mouseover .player': function(){
     //  console.log("The mouse is over a .player element");
     // }
