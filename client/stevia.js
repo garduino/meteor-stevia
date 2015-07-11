@@ -6,6 +6,7 @@ Template.stevia.helpers({
     },
    'selectedClass': function(){ 
    	   var serviceId = this._id;
+   	   // console.log(serviceId);
    	   var selectedService = Session.get('selectedService');
    	   if(serviceId == selectedService){
    	   return "selected" }
@@ -13,7 +14,7 @@ Template.stevia.helpers({
    'numberOfServices': function(){
    return ServicesList.find().count();
    },
-   'showSelectedSErvice': function(){
+   'showSelectedService': function(){
    	   var selectedService = Session.get('selectedService');
    	   return ServicesList.findOne(selectedService)
 }
@@ -23,8 +24,7 @@ Template.stevia.helpers({
     'click .service': function(){
         var serviceId = this._id; 
         Session.set('selectedService', serviceId);
-        // var selectedPlayer = Session.get('selectedPlayer');
-        // console.log(selectedPlayer);
+        // console.log(serviceId);
     },
        // 'dblclick .player': function(){
       // console.log("You DOUBLE clicked a .player element");
@@ -63,7 +63,7 @@ Template.stevia.helpers({
   	  var customerPhoneVar = event.target.customerPhone.value;
   	  var customerMobilePhoneVar = event.target.customerMobilePhone.value; 
   	  
-  	 Meteor.call('insertServicesData', typeOfService, serviceName, dueDateService, customerName, customerEmail, customerPhone, customerMobilePhone);
+  	 Meteor.call('insertService', typeOfService, serviceName, dueDateService, customerName, customerEmail, customerPhone, customerMobilePhone);
   	 event.target.typeOfService.value = '';
   	 event.target.serviceName.value = '';
   	 event.target.dueDateService.value = '';

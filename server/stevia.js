@@ -3,7 +3,7 @@ Meteor.publish('theServices', function(){
 		return ServicesList.find({createdBy: currentUserId})
 		});
 
-Meteor.methods({ 'insertServicesData': function(typeOfServiceVar, serviceNameVar, dueDateServiceVar, customerNameVar, customerEmailVar, customerPhoneVar, customerMobilePhoneVar ){
+Meteor.methods({ 'insertService': function(typeOfServiceVar, serviceNameVar, dueDateServiceVar, customerNameVar, customerEmailVar, customerPhoneVar, customerMobilePhoneVar ){
 var currentUserId = Meteor.userId(); 
 ServicesList.insert({
 		typeOfService: typeOfServiceVar,
@@ -16,13 +16,13 @@ ServicesList.insert({
 		createdBy: currentUserId
 }); },
 
-'removeServiceData': function(selectedService){
+'removeService': function(selectedService){
 	var currentUserId = Meteor.userId();
 	ServicesList.remove({_id: selectedService, createdBy: currentUserId});
 },
 
 // de aca, ver como modificar múltiples datos de un documento
-'modifyServiceData': function(selectedService, scoreValue){
+'modifyService': function(selectedService, scoreValue){
 	var currentUserId = Meteor.userId();
 	PlayersList.update( {_id: selectedPlayer, createdBy: currentUserId},
                         {$inc: {score: scoreValue} });
