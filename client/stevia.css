@@ -1,6 +1,8 @@
 /* CSS declarations go here */
 /* W3.CSS 1.2 created by J.E.Refsnes for W3schools. Do not remove this line. */
-
+.selected{
+background-color: red;
+}
 /* Extract from normalize.css by Nicolas Gallagher and Jonathan Neal | MIT License | git.io/normalize */
 html {-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;}
 body {margin:0;}
