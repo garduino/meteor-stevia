@@ -56,7 +56,6 @@ Template.stevia.helpers({
   'submit form': function(event){
   	  event.preventDefault();
   	  var typeOfServiceVar = event.target.typeOfService.value;
-  	  console.log(typeOfServiceVar);
   	  var serviceNameVar = event.target.serviceName.value;
   	  var dueDateServiceVar = event.target.dueDateService.value;
   	  var customerNameVar = event.target.customerName.value;
@@ -64,7 +63,7 @@ Template.stevia.helpers({
   	  var customerPhoneVar = event.target.customerPhone.value;
   	  var customerMobilePhoneVar = event.target.customerMobilePhone.value; 
   	  
-  	 Meteor.call('insertService', typeOfService, serviceName, dueDateService, customerName, customerEmail, customerPhone, customerMobilePhone);
+  	 Meteor.call('insertService', typeOfServiceVar, serviceNameVar, dueDateServiceVar, customerNameVar, customerEmailVar, customerPhoneVar, customerMobilePhoneVar);
   	 event.target.typeOfService.value = '';
   	 event.target.serviceName.value = '';
   	 event.target.dueDateService.value = '';
