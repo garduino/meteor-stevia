@@ -56,6 +56,7 @@ Template.stevia.helpers({
   'submit form': function(event){
   	  event.preventDefault();
   	  var typeOfServiceVar = event.target.typeOfService.value;
+  	  console.log(typeOfServiceVar);
   	  var serviceNameVar = event.target.serviceName.value;
   	  var dueDateServiceVar = event.target.dueDateService.value;
   	  var customerNameVar = event.target.customerName.value;
