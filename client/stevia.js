@@ -1,10 +1,10 @@
 Template.stevia.helpers({
-    'service': function(){    
+    'service': function(){
         // var currentUserId = Meteor.userId();
         // but I think is not needed because the data is already filtered for the logged user
         return ServicesList.find({}, {sort: {dueDateService: -1, typeOfService:1, serviceName: 1}});
     },
-   'selectedClass': function(){ 
+   'selectedClass': function(){
    	   var serviceId = this._id;
    	   // console.log(serviceId);
    	   var selectedService = Session.get('selectedService');
@@ -22,7 +22,7 @@ Template.stevia.helpers({
 
   Template.stevia.events({
     'click .service': function(){
-        var serviceId = this._id; 
+        var serviceId = this._id;
         Session.set('selectedService', serviceId);
         // console.log(serviceId);
     },
@@ -44,13 +44,13 @@ Template.stevia.helpers({
     },
     'click .remove': function(){
     	var selectedService = Session.get('selectedService');
-    	
-    	if (confirm('Are you sure?')) { 
+
+    	if (confirm('Are you sure?')) {
  	//PlayersList.remove(selectedPlayer);
  	Meteor.call('removeService', selectedService);
  		}
     }
-    
+
   });
   Template.addServiceForm.events({
   'submit form': function(event){
@@ -61,8 +61,8 @@ Template.stevia.helpers({
   	  var customerNameVar = event.target.customerName.value;
   	  var customerEmailVar = event.target.customerEmail.value;
   	  var customerPhoneVar = event.target.customerPhone.value;
-  	  var customerMobilePhoneVar = event.target.customerMobilePhone.value; 
-  	  
+  	  var customerMobilePhoneVar = event.target.customerMobilePhone.value;
+
   	 Meteor.call('insertService', typeOfServiceVar, serviceNameVar, dueDateServiceVar, customerNameVar, customerEmailVar, customerPhoneVar, customerMobilePhoneVar);
   	 event.target.typeOfService.value = '';
   	 event.target.serviceName.value = '';
@@ -71,7 +71,7 @@ Template.stevia.helpers({
   	 event.target.customerEmail.value = '';
   	 event.target.customerPhone.value = 0;
   	 event.target.customerMobilePhone.value = 0;
-  	}	  
+  	}
   });
-   
+
   Meteor.subscribe('theServices');

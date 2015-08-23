@@ -1,7 +1,7 @@
 <head> <title>Stevia</title>
 </head>
 <body>
-<h1>Stevia</h1> 
+<h1>Stevia</h1>
 <h2>Hosting and Domains Administration System</h2>
 {{> loginButtons}}
 
@@ -10,13 +10,12 @@
 
 </body>
 
-<template name="stevia"> 
+<template name="stevia">
 <ul>
 {{#each service}}
 <li class="service {{selectedClass}}">{{typeOfService}}    {{serviceName}}    {{dueDateService}}    {{customerName}}    {{customerEmail}}    {{customerPhone}}    {{customerMobilePhone}}</li>
 {{/each}}
 </ul>
-
 
 {{#if showSelectedService}}
 <input type="button" class="sendReminder" value="Send Customer Reminder">
@@ -45,13 +44,13 @@ Selected Service: {{showSelectedService.name}}
 <template name="addServiceForm">
 {{#if currentUser}}
 <form>
-Type of Service: 
+Type of Service:
      <select name="typeOfService">
         <option value="None selected">Please select below</option>
         <option value="hosting">hosting</option>
         <option value="domain">domain</option>
         <option value="administration">administration</option>
-    </select> 
+    </select>
 <br>
 Service Name: <input type="text" name="serviceName">
 <br>
