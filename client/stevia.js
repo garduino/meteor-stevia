@@ -50,7 +50,16 @@ Template.stevia.helpers({
  	//PlayersList.remove(selectedPlayer);
  	Meteor.call('removeService', selectedService);
  		}
-    }
+  },
+
+// DESDE ACA //
+  'click .updateDate': function(){
+    var selectedService = Session.get('selectedService');
+
+    if (confirm('CAMBIAR LA FECHA DE VENCIMIENTO')) {
+      //PlayersList.remove(selectedPlayer);
+      Meteor.call('updateDate', selectedService);
+  }
 
   });
   Template.addServiceForm.events({
