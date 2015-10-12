@@ -60,6 +60,7 @@ Template.stevia.helpers({
       //PlayersList.remove(selectedPlayer);
       Meteor.call('updateDate', selectedService);
   }
+}
 
   });
   Template.addServiceForm.events({
